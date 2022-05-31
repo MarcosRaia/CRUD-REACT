@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Components';
 import reportWebVitals from './reportWebVitals';
+import Gerenciar from './Components/gerenciarContato';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
+    <BrowserRouter>
+    <Routes>
+      <Route exact path='/' element = {<Home />} />
+      <Route exact path='/gerenciarContato' element = {<Gerenciar />} />
+    </Routes>
+    </BrowserRouter>
+    
   </React.StrictMode>
 );
 

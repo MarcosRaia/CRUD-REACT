@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Button, Card } from "react-bootstrap";
+import { Container, Button, Card, Nav } from "react-bootstrap";
+import {Link} from "react-router-dom"
 import Header from "./header";
 import Editar from "./Modal/editarModal";
 import '../styles/style.scss';
@@ -24,18 +25,25 @@ function Home() {
             {/* HEADER */}
             <header className="d-flex justify-content-between">
                 <h2 style={{ marginTop: '8px' }} >Lista de Contatos</h2>
-                <button
-                    onClick={() => setShowModal(true)}
-                    style={{ marginTop: '8px', marginBottom: '8px' }}
-                    variant="success">Editar Contatos
-                </button>
+                <Nav>
+                    <Link to="/gerenciarContato"> Gerenciar</Link>
+                </Nav>
                 {showModal ? <Editar /> : null}
             </header>
 
             {/* CONTENT*/}
             {contatos.map(contact => (
                 <Card className="m-2 mb-2">
-                    <Card.Body> {contact.name} </Card.Body>
+                    <Card.Body>
+                        <ul>
+                            <li> Nome: {contact.name} <hr/> </li>
+                            <li> Email: {contact.email}<hr/></li>
+                            <li> Idade: {contact.idade} </li>
+                        </ul>
+                    
+                    
+                    
+                    </Card.Body>
                 </Card>
             ))}
 
