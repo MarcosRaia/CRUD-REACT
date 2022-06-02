@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Card, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import Header from "./header";
+import '../styles/style.css'
 
-import '../styles/style.scss';
 function Home() {
     const [contatos, setContatos] = useState([]);
 
@@ -29,9 +29,9 @@ function Home() {
             {/* HEADER */}
             <header className="d-flex justify-content-between">
                 <h2 style={{ marginTop: '8px' }} >Lista de Contatos</h2>
-                <Nav>
-                    <Link to="/gerenciarContato"> Gerenciar</Link>
-                </Nav>
+                <button style={{marginBottom:'6px', marginTop:'8px'}}>
+                    <Link style={{color:'black',textDecoration: 'none'}} to="/gerenciarContato"><i class="align-index material-icons left">person_add</i>Adicionar Contato</Link>
+                </button>
             </header>
 
             {/* CONTENT*/}
@@ -40,7 +40,7 @@ function Home() {
 
                     <Card.Body>
                         <div className="d-flex justify-content-end">
-                            <button onClick={() => deletePost(contact.id)}>deletar</button>
+                            <button onClick={() => deletePost(contact.id)}><i class="material-icons left">delete</i></button>
                         </div>
                         <ul>
                             <li> Nome: {contact.name} <hr /> </li>
