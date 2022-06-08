@@ -5,6 +5,7 @@ import Home from './Components';
 import reportWebVitals from './reportWebVitals';
 import Gerenciar from './Components/gerenciarContato';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Editar from './Components/editarContato';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route exact path='/' element = {<Home />} />
+      <Route exact path='/editarContato' element = {<Editar />} />
       <Route exact path='/gerenciarContato' element = {<Gerenciar />} />
     </Routes>
     </BrowserRouter>

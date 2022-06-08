@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Card, Nav } from "react-bootstrap";
+import { Container, Card} from "react-bootstrap";
 import { Link } from "react-router-dom"
 import Header from "./header";
 import '../styles/style.css'
+import Editar from "./editarContato";
 
 function Home() {
     const [contatos, setContatos] = useState([]);
@@ -25,21 +26,22 @@ function Home() {
     return <>
         <Header />
         <Container style={{ backgroundColor: '#9E9E9E', borderRadius: '5px' }}>
-
             {/* HEADER */}
             <header className="d-flex justify-content-between">
                 <h2 style={{ marginTop: '8px' }} >Lista de Contatos</h2>
+                
                 <button style={{marginBottom:'6px', marginTop:'8px'}}>
                     <Link style={{color:'black',textDecoration: 'none'}} to="/gerenciarContato"><i class="align-index material-icons left">person_add</i>Adicionar Contato</Link>
                 </button>
+                
             </header>
 
             {/* CONTENT*/}
             {contatos.map(contact => (
                 <Card className="m-2 mb-2">
-
                     <Card.Body>
                         <div className="d-flex justify-content-end">
+                            < Editar />
                             <button onClick={() => deletePost(contact.id)}><i class="material-icons left">delete</i></button>
                         </div>
                         <ul>
@@ -47,8 +49,6 @@ function Home() {
                             <li> Email: {contact.email}<hr /> </li>
                             <li> Idade: {contact.idade} </li>
                         </ul>
-
-
                     </Card.Body>
                 </Card>
             ))}
